@@ -38,8 +38,9 @@ export var InnerSlider = React.createClass({
       mounted: true
     });
     var lazyLoadedList = [];
+    const numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
     for (var i = 0; i < React.Children.count(this.props.children); i++) {
-      if (i >= this.state.currentSlide && i < this.state.currentSlide + this.props.slidesToShow) {
+      if (i >= this.state.currentSlide && i < this.state.currentSlide + numberOfSlidesToLoad) {
         lazyLoadedList.push(i);
       }
     }
@@ -145,6 +146,7 @@ export var InnerSlider = React.createClass({
       focusOnSelect: this.props.focusOnSelect ? this.selectHandler : null,
       currentSlide: this.state.currentSlide,
       lazyLoad: this.props.lazyLoad,
+      lazyLoadOffset: this.props.lazyLoadOffset,
       lazyLoadedList: this.state.lazyLoadedList,
       rtl: this.props.rtl,
       slideWidth: this.state.slideWidth,

@@ -271,8 +271,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      mounted: true
 	    });
 	    var lazyLoadedList = [];
+	    var numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
 	    for (var i = 0; i < _react2.default.Children.count(this.props.children); i++) {
-	      if (i >= this.state.currentSlide && i < this.state.currentSlide + this.props.slidesToShow) {
+	      if (i >= this.state.currentSlide && i < this.state.currentSlide + numberOfSlidesToLoad) {
 	        lazyLoadedList.push(i);
 	      }
 	    }
@@ -378,6 +379,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      focusOnSelect: this.props.focusOnSelect ? this.selectHandler : null,
 	      currentSlide: this.state.currentSlide,
 	      lazyLoad: this.props.lazyLoad,
+	      lazyLoadOffset: this.props.lazyLoadOffset,
 	      lazyLoadedList: this.state.lazyLoadedList,
 	      rtl: this.props.rtl,
 	      slideWidth: this.state.slideWidth,
@@ -993,8 +995,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7 */
 /***/ function(module, exports) {
 
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
 	'use strict';
 	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -1015,7 +1024,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			// Detect buggy property enumeration order in older V8 versions.
 
 			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-			var test1 = new String('abc');  // eslint-disable-line
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 			test1[5] = 'de';
 			if (Object.getOwnPropertyNames(test1)[0] === '5') {
 				return false;
@@ -1044,7 +1053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 
 			return true;
-		} catch (e) {
+		} catch (err) {
 			// We don't expect any of the above to throw, but better to be safe.
 			return false;
 		}
@@ -1064,8 +1073,8 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 			}
 
-			if (Object.getOwnPropertySymbols) {
-				symbols = Object.getOwnPropertySymbols(from);
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
 				for (var i = 0; i < symbols.length; i++) {
 					if (propIsEnumerable.call(from, symbols[i])) {
 						to[symbols[i]] = from[symbols[i]];
@@ -1338,7 +1347,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.lazyLoad) {
 	      var loaded = true;
 	      var slidesToLoad = [];
-	      for (var i = targetSlide; i < targetSlide + this.props.slidesToShow; i++) {
+	      var numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
+	      for (var i = targetSlide; i < targetSlide + numberOfSlidesToLoad; i++) {
 	        loaded = loaded && this.state.lazyLoadedList.indexOf(i) >= 0;
 	        if (!loaded) {
 	          slidesToLoad.push(i);
