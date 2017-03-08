@@ -7,11 +7,11 @@ export default class LazyLoad extends Component {
     const settings = {
       dots: true,
       lazyLoad: true,
+      lazyLoadOffset: 1,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
-      initialSlide: 2
+      slidesToScroll: 1
     };
     return (
       <div>
