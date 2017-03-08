@@ -305,8 +305,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      mounted: true
 	    });
 	    var lazyLoadedList = [];
+	    var numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
 	    for (var i = 0; i < _react2.default.Children.count(this.props.children); i++) {
-	      if (i >= this.state.currentSlide && i < this.state.currentSlide + this.props.slidesToShow) {
+	      if (i >= this.state.currentSlide && i < this.state.currentSlide + numberOfSlidesToLoad) {
 	        lazyLoadedList.push(i);
 	      }
 	    }
@@ -413,6 +414,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      focusOnSelect: this.props.focusOnSelect ? this.selectHandler : null,
 	      currentSlide: this.state.currentSlide,
 	      lazyLoad: this.props.lazyLoad,
+	      lazyLoadOffset: this.props.lazyLoadOffset,
 	      lazyLoadedList: this.state.lazyLoadedList,
 	      rtl: this.props.rtl,
 	      slideWidth: this.state.slideWidth,
@@ -1412,7 +1414,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.lazyLoad) {
 	      var loaded = true;
 	      var slidesToLoad = [];
-	      for (var i = targetSlide; i < targetSlide + this.props.slidesToShow; i++) {
+	      var numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
+	      for (var i = targetSlide; i < targetSlide + numberOfSlidesToLoad; i++) {
 	        loaded = loaded && this.state.lazyLoadedList.indexOf(i) >= 0;
 	        if (!loaded) {
 	          slidesToLoad.push(i);
