@@ -1408,7 +1408,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var loaded = true;
 	      var slidesToLoad = [];
 	      var numberOfSlidesToLoad = this.props.lazyLoadOffset + this.props.slidesToShow;
-	      for (var i = targetSlide; i < targetSlide + numberOfSlidesToLoad; i++) {
+	      for (var i = currentSlide; i < currentSlide + numberOfSlidesToLoad; i++) {
 	        loaded = loaded && this.state.lazyLoadedList.indexOf(i) >= 0;
 	        if (!loaded) {
 	          slidesToLoad.push(i);
