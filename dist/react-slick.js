@@ -3107,6 +3107,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
+	var _reactLazy = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-lazy\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3182,6 +3184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (e) {
 	      e.preventDefault();
 	    }
+	    (0, _reactLazy.checkElementsInViewport)();
 	    this.props.clickHandler(options, e);
 	  };
 
