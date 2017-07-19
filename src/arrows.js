@@ -3,6 +3,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Helpers from './mixins/helpers';
+import { checkElementsInViewport } from 'react-lazy';
 
 export var PrevArrow = React.createClass({
 
@@ -42,6 +43,7 @@ export var PrevArrow = React.createClass({
 export var NextArrow = React.createClass({
   clickHandler: function (options, e) {
     if (e) { e.preventDefault(); }
+    checkElementsInViewport();
     this.props.clickHandler(options, e);
   },
   render: function () {
