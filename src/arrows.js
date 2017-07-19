@@ -3,6 +3,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Helpers from './mixins/helpers';
+import { checkElementsInViewport } from 'react-lazy';
 
 export class PrevArrow extends React.Component {
   clickHandler(options, e) {
@@ -45,6 +46,7 @@ export class PrevArrow extends React.Component {
 export class NextArrow extends React.Component {
   clickHandler(options, e) {
     if (e) { e.preventDefault(); }
+    checkElementsInViewport();
     this.props.clickHandler(options, e);
   }
   render() {
