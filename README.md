@@ -1,3 +1,27 @@
+### HC Fork usage
+
+We made some changes that haven't been accepted upstream, at least not yet. 
+Those are available in the `hc-*` branches.
+
+All those have been merged to master in this fork.
+Also the `/lib` and `/dist` folders have been added to the repository, so this fork can be easily referenced as a 
+dependency in `package.json` and installed.
+
+#### Adding a new custom change 
+
+1. Fork off from akiran/master and push your change to a branch prefixed with `hc-`. If you think others might benefit from your change, open a pull request upstream.
+1. Merge this branch to holidaycheck/master. 
+1. Run `npm run prepublish` and commit the changes to `/lib` and `/dist`.
+1. Tag the resulting commit using `git tag -a` so that it doesn't get lost in case we do rebases. 
+   This commit hash can then be used when referencing `react-slick` from other project's `package.json` files.
+
+#### Keeping up to date with upstream
+
+Once in a while we might want to integrate more recent versions from upstream.
+Some rebases on the `hc-*` branches might be necessary.
+Don't forget to run `npm run prepublish` and commit the changes to `/lib` and `/dist`.
+
+
 # react-slick
 
 [![Join the chat at https://gitter.im/akiran/react-slick](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/akiran/react-slick?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
