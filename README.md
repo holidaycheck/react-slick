@@ -12,7 +12,7 @@ dependency in `package.json` and installed.
 1. Fork off from akiran/master and push your change to a branch prefixed with `hc-`. If you think others might benefit from your change, open a pull request upstream.
 1. Merge this branch to holidaycheck/master. 
 1. Run `npm run prepublish` and commit the changes to `/lib` and `/dist`.
-1. Tag the resulting commit using `git tag -a` so that it doesn't get lost in case we do rebases. 
+1. Tag the resulting commit using `git tag -a` so that it doesn't get lost in case we do rebases. Don't forget to push the tag.
    This commit hash can then be used when referencing `react-slick` from other project's `package.json` files.
 
 #### Keeping up to date with upstream
