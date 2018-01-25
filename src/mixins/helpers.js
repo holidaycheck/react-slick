@@ -44,6 +44,7 @@ var helpers = {
       currentSlide,
       slideHeight,
       listHeight,
+      initialized: true
     }, function () {
 
       var targetLeft = getTrackLeft(assign({
