@@ -54,8 +54,6 @@ export var InnerSlider = createReactClass({
 
     if (typeof window === 'undefined') {
       this.serverInitialize(this.props);
-    } else {
-      this.setState({ initialized: true });
     }
   },
   componentDidMount: function componentDidMount() {
