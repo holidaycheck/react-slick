@@ -320,8 +320,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    if (typeof window === 'undefined') {
 	      this.serverInitialize(this.props);
-	    } else {
-	      this.setState({ initialized: true });
 	    }
 	  },
 	  componentDidMount: function componentDidMount() {
@@ -1211,7 +1209,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      trackWidth: trackWidth,
 	      currentSlide: currentSlide,
 	      slideHeight: slideHeight,
-	      listHeight: listHeight
+	      listHeight: listHeight,
+	      initialized: true
 	    }, function () {
 
 	      var targetLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
